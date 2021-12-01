@@ -19,3 +19,5 @@ lady.register_mesh = function(name)
 end
 
 lady.register_mesh("bell_flower")
+lady.register_mesh("carrot")
+lady.register_mesh("daffodil")
