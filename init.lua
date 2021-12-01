@@ -21,3 +21,5 @@ end
 lady.register_mesh("bell_flower")
 lady.register_mesh("carrot")
 lady.register_mesh("daffodil")
+lady.register_mesh("desert_flower")
+lady.register_mesh("desert_marigold")
