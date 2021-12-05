@@ -2,10 +2,10 @@ local lady = {}
 
 lady.register_mesh = function(name)
 	autobox.register_node(
-		"ladybug:"..name, --node name
+		"lady_assets:"..name, --node name
 		name..".box", --node bounding box
 		{ --node def
-			description =  "ladybug:"..name,
+			description =  "lady_assets:"..name,
 			drawtype = "mesh",
 			mesh = name..".obj",
 			sunlight_propagates = true,
@@ -28,6 +28,8 @@ lady.register_mesh("fern")
 lady.register_mesh("flower_pot")
 lady.register_mesh("garden_rake")
 lady.register_mesh("grass")
+lady.register_mesh("grass_medium")
+lady.register_mesh("grass_short")
 lady.register_mesh("flower_pot")
 lady.register_mesh("garden_rake")
 lady.register_mesh("grass_blade_1")
@@ -44,4 +46,9 @@ lady.register_mesh("pushlin")
 lady.register_mesh("roses")
 lady.register_mesh("slug_1")
 lady.register_mesh("slug_2")
-lady.register_mesh("star")
+lady.register_mesh("tree_roots")
+lady.register_mesh("tree_stump")
+lady.register_mesh("trowel")
+lady.register_mesh("tulips")
+lady.register_mesh("twig_1")
+lady.register_mesh("watering_can")
