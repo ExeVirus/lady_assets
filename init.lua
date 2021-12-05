@@ -52,3 +52,45 @@ lady.register_mesh("trowel")
 lady.register_mesh("tulips")
 lady.register_mesh("twig_1")
 lady.register_mesh("watering_can")
+
+--Water For game
+minetest.register_node("lady_assets:water", {
+	description = "Water",
+	drawtype = "nodebox",
+	node_box = {
+		type = "connected",
+		fixed = {
+			{-0.5, -0.5, -0.5, 0.5, 0.475, 0.5},
+		},
+	},
+	connects_to = "lady_assets:water",
+	connect_sides = { "top", "bottom"},
+	waving = 3,
+	tiles = {
+		{
+			name = "water.png",
+			backface_culling = true,
+			animation = {
+				type = "vertical_frames",
+				aspect_w = 16,
+				aspect_h = 16,
+				length = 2.0,
+			},
+		},
+	},
+	paramtype = "light",
+	paramtype2 = "facedir",
+	walkable = false,
+	--pointable = true,
+	--diggable = true,
+	--buildable_to = true,
+	--is_ground_content = true,
+	--drop = "",
+	drowning = 1,
+	--liquidtype = "none",
+	--liquid_alternative_flowing = "default:water_flowing",
+	--liquid_viscosity = 7,
+	post_effect_color = {a = 50, r = 15, g = 30, b =45},
+	groups = { oddly_breakable_by_hand = 2},
+	--liquid_range = 1,
+})
