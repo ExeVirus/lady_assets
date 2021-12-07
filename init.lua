@@ -28,29 +28,28 @@ lady.register_mesh("fern")
 lady.register_mesh("flower_pot")
 lady.register_mesh("garden_rake")
 lady.register_mesh("grass")
-lady.register_mesh("grass_medium")
-lady.register_mesh("grass_short")
-lady.register_mesh("flower_pot")
-lady.register_mesh("garden_rake")
 lady.register_mesh("grass_blade_1")
+lady.register_mesh("grass_medium")
 lady.register_mesh("grass_plant_1")
+lady.register_mesh("grass_short")
 lady.register_mesh("grass_tuft")
-lady.register_mesh("grass")
 lady.register_mesh("hummingbird")
 lady.register_mesh("ivy")
 lady.register_mesh("leafy_green")
-lady.register_mesh("mushroom_2")
 lady.register_mesh("mushroom")
+lady.register_mesh("mushroom_2")
 lady.register_mesh("pastel_flowers")
 lady.register_mesh("pushlin")
 lady.register_mesh("roses")
 lady.register_mesh("slug_1")
 lady.register_mesh("slug_2")
+lady.register_mesh("star")
 lady.register_mesh("tree_roots")
 lady.register_mesh("tree_stump")
 lady.register_mesh("trowel")
 lady.register_mesh("tulips")
 lady.register_mesh("twig_1")
+lady.register_mesh("vine_1")
 lady.register_mesh("watering_can")
 
 --Water For game
@@ -81,16 +80,57 @@ minetest.register_node("lady_assets:water", {
 	paramtype = "light",
 	paramtype2 = "facedir",
 	walkable = false,
-	--pointable = true,
-	--diggable = true,
-	--buildable_to = true,
-	--is_ground_content = true,
-	--drop = "",
 	drowning = 1,
-	--liquidtype = "none",
-	--liquid_alternative_flowing = "default:water_flowing",
-	--liquid_viscosity = 7,
 	post_effect_color = {a = 50, r = 15, g = 30, b =45},
 	groups = { oddly_breakable_by_hand = 2},
-	--liquid_range = 1,
 })
+
+--Water For game
+minetest.register_node("lady_assets:_star", {
+	description = "Star",
+	drawtype = "mesh",
+	collision_box = {
+		type = "fixed",
+		fixed = {
+			{-0.5, -0.5, -0.5, 0.5, 0.5, 0.5},
+		},
+	},
+	use_texture_alpha = true,
+	mesh = "_star.obj",
+	tiles = {
+		{
+			name = "_star.png",
+			animation = {
+				type = "vertical_frames",
+				aspect_w = 4,
+				aspect_h = 1,
+				length = 1.45,
+			},
+		},
+	},
+	paramtype = "light",
+	paramtype2 = "facedir",
+	walkable = false,
+	groups = { oddly_breakable_by_hand = 2},
+})
+
+local _time = 0
+minetest.register_globalstep(function(dtime)
+	_time = _time + dtime
+	if _time > 0.2 then
+		_time = 0
+		local _player = minetest.get_player_by_name("singleplayer")
+		if _player then
+			local _pos = _player:get_pos()
+			local _node = minetest.get_node({x=_pos.x, y=_pos.y+1, z=_pos.z})
+			if _node.name == "lady_assets:water" then
+				minetest.chat_send_player("singleplayer", "Drowning!")
+			else
+				_node = minetest.get_node(_pos)
+				if _node.name == "lady_assets:_star" then
+					minetest.chat_send_player("singleplayer", "star")
+				end
+			end
+		end
+	end	
+end)
