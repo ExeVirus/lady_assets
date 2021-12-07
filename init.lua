@@ -114,6 +114,17 @@ minetest.register_node("lady_assets:_star", {
 	groups = { oddly_breakable_by_hand = 2},
 })
 
+--Grass For game
+minetest.register_node("lady_assets:grass", {
+	description = "grass",
+	drawtype = "normal",
+	tiles = {"grass.png"},
+	paramtype = "light",
+	paramtype2 = "facedir",
+	groups = { oddly_breakable_by_hand = 2},
+})
+
+
 local _time = 0
 minetest.register_globalstep(function(dtime)
 	_time = _time + dtime
