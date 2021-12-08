@@ -145,3 +145,9 @@ minetest.register_globalstep(function(dtime)
 		end
 	end	
 end)
+
+stairsplus:register_all("lady_assets", "grass", "lady_assets:grass", {
+	description = "Grass",
+	tiles = {"grass.png"},
+	groups = {oddly_breakable_by_hand=2},
+})
