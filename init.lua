@@ -133,7 +133,7 @@ minetest.register_globalstep(function(dtime)
 		local _player = minetest.get_player_by_name("singleplayer")
 		if _player then
 			local _pos = _player:get_pos()
-			local _node = minetest.get_node({x=_pos.x, y=_pos.y+1, z=_pos.z})
+			local _node = minetest.get_node({x=_pos.x, y=_pos.y+0.5, z=_pos.z})
 			if _node.name == "lady_assets:water" then
 				minetest.chat_send_player("singleplayer", "Drowning!")
 			else
