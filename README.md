@@ -1,4 +1,4 @@
-# TheGardenLady
+# Lady Assets
 
 ## Game Design
 
