@@ -123,28 +123,6 @@ minetest.register_node("lady_assets:grass", {
 	groups = { oddly_breakable_by_hand = 2},
 })
 
-
-local _time = 0
-minetest.register_globalstep(function(dtime)
-	_time = _time + dtime
-	if _time > 0.2 then
-		_time = 0
-		local _player = minetest.get_player_by_name("singleplayer")
-		if _player then
-			local _pos = _player:get_pos()
-			local _node = minetest.get_node({x=_pos.x, y=_pos.y+0.5, z=_pos.z})
-			if _node.name == "lady_assets:water" then
-				minetest.chat_send_player("singleplayer", "Drowning!")
-			else
-				_node = minetest.get_node(_pos)
-				if _node.name == "lady_assets:star" then
-					minetest.chat_send_player("singleplayer", "star")
-				end
-			end
-		end
-	end	
-end)
-
 stairsplus:register_all("lady_assets", "grass", "lady_assets:grass", {
 	description = "Grass",
 	tiles = {"lady_assets_grass.png"},
