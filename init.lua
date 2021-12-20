@@ -44,7 +44,24 @@ lady_assets.register_mesh("roses")
 lady_assets.register_mesh("slug_1")
 lady_assets.register_mesh("slug_2")
 lady_assets.register_mesh("tree_roots")
-lady_assets.register_mesh("tree_stump")
+--lady_assets.register_mesh("tree_stump")
+autobox.register_node(
+	"lady_assets:".."tree_stump", --node name
+	"lady_assets_".."tree_stump"..".box", --node bounding box
+	{ --node def
+		description =  "lady_assets:".."tree_stump",
+		drawtype = "mesh",
+		mesh = "lady_assets_".."tree_stump"..".obj",
+		sunlight_propagates = true,
+		paramtype2 = "facedir",
+		paramtype = "light",
+		tiles = {"lady_assets_".."tree_stump"..".png"},
+		inventory_image = "lady_assets_tree_stump_inv.png",
+		wield_image = "lady_assets_tree_stump_inv.png",
+		groups = { oddly_breakable_by_hand=2 },
+	},
+	true
+)
 lady_assets.register_mesh("trowel")
 lady_assets.register_mesh("tulips")
 lady_assets.register_mesh("twig_1")
