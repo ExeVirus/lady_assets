@@ -8,6 +8,8 @@ lady_assets.register_mesh = function(name)
 			description =  "lady_assets:"..name,
 			drawtype = "mesh",
 			mesh = "lady_assets_"..name..".obj",
+			use_texture_alpha = "clip",
+			pointable = false,
 			sunlight_propagates = true,
 			paramtype2 = "facedir",
 			paramtype = "light",
@@ -53,6 +55,8 @@ autobox.register_node(
 		drawtype = "mesh",
 		mesh = "lady_assets_".."tree_stump"..".obj",
 		sunlight_propagates = true,
+		pointable = false,
+		use_texture_alpha = "clip",
 		paramtype2 = "facedir",
 		paramtype = "light",
 		tiles = {"lady_assets_".."tree_stump"..".png"},
@@ -78,8 +82,10 @@ minetest.register_node("lady_assets:water", {
 			{-0.5, -0.5, -0.5, 0.5, 0.475, 0.5},
 		},
 	},
+	pointable = false,
 	connects_to = "lady_assets:lady_assets_water",
 	connect_sides = { "top", "bottom"},
+	use_texture_alpha = "clip",
 	waving = 3,
 	tiles = {
 		{
@@ -111,8 +117,9 @@ minetest.register_node("lady_assets:star", {
 			{-0.5, -0.5, -0.5, 0.5, 0.5, 0.5},
 		},
 	},
-	use_texture_alpha = true,
+	use_texture_alpha = "clip",
 	mesh = "lady_assets_star.obj",
+	pointable = false,
 	tiles = {
 		{
 			name = "lady_assets_star.png",
@@ -132,6 +139,7 @@ minetest.register_node("lady_assets:star", {
 
 --Grass For game
 minetest.register_node("lady_assets:grass", {
+	pointable = false,
 	description = "grass",
 	drawtype = "normal",
 	tiles = {"lady_assets_grass.png"},
@@ -144,4 +152,5 @@ stairsplus:register_all("lady_assets", "grass", "lady_assets:grass", {
 	description = "Grass",
 	tiles = {"lady_assets_grass.png"},
 	groups = {oddly_breakable_by_hand=2},
+	pointable = false,
 })
